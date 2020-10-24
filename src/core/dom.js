@@ -25,6 +25,17 @@ class Dom {
         this.$el.addEventListener(eventType,callback)
     }
 
+    closest(selector){
+       return $(this.$el.closest(selector))
+    }
+
+    getCoords(){
+        return this.$el.getBoundingClientRect()
+    }
+
+    get data(){
+        return this.$el.dataset
+    }
 
     append(node){
         node = node instanceof Dom ? node.$el:node;
@@ -37,6 +48,14 @@ class Dom {
         return this
     }
 
+    findAll(selector){
+        return this.$el.querySelectorAll(selector)
+    }
+    css(styles ={}){
+            Object.keys(styles).forEach(key =>{
+                this.$el.style[key] = styles[key]
+            })
+    }
 }
 
 
